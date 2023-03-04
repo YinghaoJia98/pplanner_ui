@@ -1,0 +1,9 @@
+<library path="lib/libpplanner_ui">
+  <class name="pplanner_ui/PPlanner Control"
+         type="pplanner_ui::pplanner_panel"
+         base_class_type="rviz::Panel">
+    <description>
+      A panel widget for control of pplanner.
+    </description>
+  </class>
+</library>

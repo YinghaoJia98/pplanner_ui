@@ -37,12 +37,24 @@ namespace pplanner_ui
   public Q_SLOTS:
 
     void on_global_planner_by_id_click();
+    void on_pause_click();
+    void on_continue_click();
+    void on_stop_click();
   protected Q_SLOTS:
 
   protected:
-    QPushButton *button_global_planner_by_id;
-    QLineEdit *global_planner_id_line_edit;
-    ros::ServiceClient global_planner_by_id_client;
+    QPushButton *button_global_planner_by_id_;
+    QLineEdit *global_planner_id_line_edit_;
+    ros::ServiceClient global_planner_by_id_client_;
+
+    QPushButton *button_pause_planner;
+    ros::ServiceClient Pause_planner_client;
+
+    QPushButton *button_continue_planner;
+    ros::ServiceClient Continue_planner_client;
+
+    QPushButton *button_stop_planner;
+    ros::ServiceClient Stop_planner_client;
 
     ros::NodeHandle nh;
   };

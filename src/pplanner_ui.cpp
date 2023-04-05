@@ -12,6 +12,8 @@ namespace pplanner_ui
     Pause_planner_client = nh.serviceClient<std_srvs::Trigger>("pause_tracker");
     Continue_planner_client = nh.serviceClient<std_srvs::Trigger>("continue_tracker");
     Stop_planner_client = nh.serviceClient<std_srvs::Trigger>("stop_tracker");
+    Start_explorer_client = nh.serviceClient<std_srvs::Trigger>("start_to_explore");
+    Stop_explorer_client = nh.serviceClient<std_srvs::Trigger>("stop_exploring");
 
     QVBoxLayout *v_box_layout = new QVBoxLayout;
 
@@ -19,11 +21,15 @@ namespace pplanner_ui
     button_pause_planner = new QPushButton;
     button_continue_planner = new QPushButton;
     button_stop_planner = new QPushButton;
+    button_start_explorer = new QPushButton;
+    button_stop_explorer = new QPushButton;
 
     button_global_planner_by_id_->setText("Run Global Planner By Id");
     button_pause_planner->setText("Pause the tracker");
     button_continue_planner->setText("Continue the tracker");
     button_stop_planner->setText("Stop the tracker");
+    button_start_explorer->setText("Start the explorer");
+    button_stop_explorer->setText("Stop the explorer");
 
     QVBoxLayout *global_vbox_layout = new QVBoxLayout;
     QHBoxLayout *global_hbox_layout = new QHBoxLayout;
@@ -42,6 +48,8 @@ namespace pplanner_ui
     v_box_layout->addWidget(button_pause_planner);
     v_box_layout->addWidget(button_continue_planner);
     v_box_layout->addWidget(button_stop_planner);
+    v_box_layout->addWidget(button_start_explorer);
+    v_box_layout->addWidget(button_stop_explorer);
 
     setLayout(v_box_layout);
 
@@ -56,6 +64,12 @@ namespace pplanner_ui
 
     connect(button_stop_planner, SIGNAL(clicked()), this,
             SLOT(on_stop_click()));
+
+    connect(button_start_explorer, SIGNAL(clicked()), this,
+            SLOT(on_StartExplorer_click()));
+
+    connect(button_stop_explorer, SIGNAL(clicked()), this,
+            SLOT(on_StopExplorer_click()));
   }
 
   void pplanner_panel::on_global_planner_by_id_click()
@@ -129,6 +143,26 @@ namespace pplanner_ui
     {
       ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
                 Stop_planner_client.getService().c_str());
+    }
+  }
+
+  void pplanner_panel::on_StartExplorer_click()
+  {
+    std_srvs::Trigger srv;
+    if (!Start_explorer_client.call(srv))
+    {
+      ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
+                Start_explorer_client.getService().c_str());
+    }
+  }
+
+  void pplanner_panel::on_StopExplorer_click()
+  {
+    std_srvs::Trigger srv;
+    if (!Stop_explorer_client.call(srv))
+    {
+      ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
+                Stop_explorer_client.getService().c_str());
     }
   }
 

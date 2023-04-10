@@ -42,6 +42,7 @@ namespace pplanner_ui
     void on_stop_click();
     void on_StartExplorer_click();
     void on_StopExplorer_click();
+    void on_InitializationPplanner_click();
   protected Q_SLOTS:
 
   protected:
@@ -63,6 +64,9 @@ namespace pplanner_ui
 
     QPushButton *button_stop_explorer;
     ros::ServiceClient Stop_explorer_client;
+
+    QPushButton *button_initialization_pplanner;
+    ros::ServiceClient Initialization_pplanner_client;
 
     ros::NodeHandle nh;
   };

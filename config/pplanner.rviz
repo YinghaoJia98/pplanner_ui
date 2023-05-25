@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Grid1
       Splitter Ratio: 0.5
     Tree Height: 462
   - Class: rviz/Selection
@@ -36,7 +37,7 @@ Visualization Manager:
   Class: ""
   Displays:
     - Alpha: 0.5
-      Cell Size: 1
+      Cell Size: 3
       Class: rviz/Grid
       Color: 160; 160; 164
       Enabled: true
@@ -50,7 +51,7 @@ Visualization Manager:
         Y: 0
         Z: 0
       Plane: XY
-      Plane Cell Count: 10
+      Plane Cell Count: 100
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 1
@@ -221,7 +222,8 @@ Visualization Manager:
       Marker Topic: /pplanner/GlobalPath
       Name: MarkerArray
       Namespaces:
-        {}
+        global_path_edges: true
+        global_path_vertices: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -245,7 +247,8 @@ Visualization Manager:
       Marker Topic: /pplanner/LocalPath
       Name: MarkerArray
       Namespaces:
-        {}
+        local_path_edges: true
+        local_path_vertices: true
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -412,7 +415,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 12.474273681640625
+      Distance: 52.11366271972656
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -428,9 +431,9 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 1.3447965383529663
+      Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 1.5636141300201416
+      Yaw: 1.56861412525177
     Saved: ~
 Window Geometry:
   Displays:

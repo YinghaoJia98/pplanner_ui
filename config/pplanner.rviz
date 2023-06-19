@@ -7,7 +7,8 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
-      Splitter Ratio: 0.5
+        - /Marker8/Namespaces1
+      Splitter Ratio: 0.6705882549285889
     Tree Height: 462
   - Class: rviz/Selection
     Name: Selection
@@ -247,8 +248,7 @@ Visualization Manager:
       Marker Topic: /pplanner/LocalPath
       Name: MarkerArray
       Namespaces:
-        local_path_edges: true
-        local_path_vertices: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -387,6 +387,14 @@ Visualization Manager:
         vertices_graphmanager: true
       Queue Size: 100
       Value: true
+    - Class: rviz/Marker
+      Enabled: false
+      Marker Topic: /pplanner/RoughGlobalGraph
+      Name: Marker
+      Namespaces:
+        {}
+      Queue Size: 100
+      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -454,4 +462,4 @@ Window Geometry:
     collapsed: false
   Width: 1848
   X: 72
-  Y: 0
+  Y: 27

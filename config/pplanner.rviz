@@ -7,9 +7,11 @@ Panels:
         - /Global Options1
         - /Status1
         - /Grid1
+        - /TF1
+        - /TF1/Frames1
         - /Marker8/Namespaces1
       Splitter Ratio: 0.6705882549285889
-    Tree Height: 462
+    Tree Height: 716
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
@@ -83,39 +85,73 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        LF_WHEEL_LINK:
+        FL_calf:
           Value: false
-        LH_WHEEL_LINK:
+        FL_foot:
           Value: false
-        RF_WHEEL_LINK:
+        FL_hip:
           Value: false
-        RH_WHEEL_LINK:
+        FL_thigh:
+          Value: false
+        FL_thigh_shoulder:
+          Value: false
+        FR_calf:
+          Value: false
+        FR_foot:
+          Value: false
+        FR_hip:
+          Value: false
+        FR_thigh:
+          Value: false
+        FR_thigh_shoulder:
+          Value: false
+        RL_calf:
+          Value: false
+        RL_foot:
+          Value: false
+        RL_hip:
+          Value: false
+        RL_thigh:
+          Value: false
+        RL_thigh_shoulder:
+          Value: false
+        RR_calf:
+          Value: false
+        RR_foot:
+          Value: false
+        RR_hip:
+          Value: false
+        RR_thigh:
+          Value: false
+        RR_thigh_shoulder:
           Value: false
         base_footprint:
-          Value: false
+          Value: true
         base_link:
           Value: true
         base_stabilized:
+          Value: true
+        imu_link:
           Value: false
-        inertial_link:
+        lidar_back:
+          Value: false
+        lidar_back_os1_imu:
+          Value: false
+        lidar_back_os1_lidar:
           Value: false
         lidar_front:
+          Value: false
+        lidar_front_os1_imu:
+          Value: false
+        lidar_front_os1_lidar:
           Value: false
         navigation:
           Value: false
         odom:
           Value: false
-        os1_imu:
-          Value: false
-        os1_lidar:
-          Value: false
-        rgb_cam_front:
-          Value: false
-        rgb_cam_left:
-          Value: false
-        rgb_cam_right:
-          Value: false
         sensor_head_base_link:
+          Value: false
+        trunk:
           Value: false
         velodyne:
           Value: false
@@ -134,31 +170,51 @@ Visualization Manager:
           base_footprint:
             base_stabilized:
               base_link:
-                LF_WHEEL_LINK:
-                  {}
-                LH_WHEEL_LINK:
-                  {}
-                RF_WHEEL_LINK:
-                  {}
-                RH_WHEEL_LINK:
-                  {}
-                inertial_link:
-                  {}
                 sensor_head_base_link:
+                  lidar_back:
+                    lidar_back_os1_imu:
+                      {}
+                    lidar_back_os1_lidar:
+                      {}
                   lidar_front:
-                    os1_imu:
+                    lidar_front_os1_imu:
                       {}
-                    os1_lidar:
+                    lidar_front_os1_lidar:
                       {}
-                  rgb_cam_front:
-                    {}
-                  rgb_cam_left:
-                    {}
-                  rgb_cam_right:
-                    {}
                   velodyne_base_link:
                     velodyne:
                       {}
+                trunk:
+                  FL_hip:
+                    FL_thigh:
+                      FL_calf:
+                        FL_foot:
+                          {}
+                    FL_thigh_shoulder:
+                      {}
+                  FR_hip:
+                    FR_thigh:
+                      FR_calf:
+                        FR_foot:
+                          {}
+                    FR_thigh_shoulder:
+                      {}
+                  RL_hip:
+                    RL_thigh:
+                      RL_calf:
+                        RL_foot:
+                          {}
+                    RL_thigh_shoulder:
+                      {}
+                  RR_hip:
+                    RR_thigh:
+                      RR_calf:
+                        RR_foot:
+                          {}
+                    RR_thigh_shoulder:
+                      {}
+                  imu_link:
+                    {}
           navigation:
             {}
           odom:
@@ -223,8 +279,7 @@ Visualization Manager:
       Marker Topic: /pplanner/GlobalPath
       Name: MarkerArray
       Namespaces:
-        global_path_edges: true
-        global_path_vertices: true
+        {}
       Queue Size: 100
       Value: true
     - Class: rviz/Marker
@@ -300,23 +355,103 @@ Visualization Manager:
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        LF_WHEEL_LINK:
+        FL_calf:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        LH_WHEEL_LINK:
+        FL_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_thigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FL_thigh_shoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_calf:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_thigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        FR_thigh_shoulder:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
         Link Tree Style: Links in Alphabetic Order
-        RF_WHEEL_LINK:
+        RL_calf:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        RH_WHEEL_LINK:
+        RL_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_thigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RL_thigh_shoulder:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_calf:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_foot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_hip:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_thigh:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        RR_thigh_shoulder:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -326,7 +461,21 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        inertial_link:
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lidar_back:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lidar_back_os1_imu:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        lidar_back_os1_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -335,33 +484,23 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        os1_imu:
+        lidar_front_os1_imu:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        os1_lidar:
+        lidar_front_os1_lidar:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        rgb_cam_front:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rgb_cam_left:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        rgb_cam_right:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         sensor_head_base_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
+        trunk:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
         velodyne:
           Alpha: 1
           Show Axes: false
@@ -423,7 +562,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 52.11366271972656
+      Distance: 53.61561584472656
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -431,9 +570,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 2.1795125007629395
-        Y: -0.0934051126241684
-        Z: -1.4710503816604614
+        X: 6.847253322601318
+        Y: -1.6386377811431885
+        Z: -1.4999278783798218
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -441,17 +580,17 @@ Visualization Manager:
       Near Clip Distance: 0.009999999776482582
       Pitch: 1.5697963237762451
       Target Frame: <Fixed Frame>
-      Yaw: 1.56861412525177
+      Yaw: 3.153623104095459
     Saved: ~
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1016
+  Height: 1376
   Hide Left Dock: false
   Hide Right Dock: false
   PPlanner Control:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd0000000400000000000001560000035afc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000259000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000002000500050006c0061006e006e0065007200200043006f006e00740072006f006c010000029c000000fb000000fb00ffffff000000010000010f0000035afc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d0000035a000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000007380000003efc0100000002fb0000000800540069006d0065010000000000000738000003bc00fffffffb0000000800540069006d00650100000000000004500000000000000000000004c70000035a00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000040000000000000156000004c2fc0200000009fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000005c00fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003d00000357000000c900fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261fb0000002000500050006c0061006e006e0065007200200043006f006e00740072006f006c010000039a00000165000000fb00ffffff000000010000010f000004c2fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073010000003d000004c2000000a400fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b200000000000000000000000200000490000000a9fc0100000001fb0000000a00560069006500770073030000004e00000080000002e1000001970000000300000d280000003efc0100000002fb0000000800540069006d0065010000000000000d28000003bc00fffffffb0000000800540069006d0065010000000000000450000000000000000000000ab7000004c200000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Selection:
     collapsed: false
   Time:
@@ -460,6 +599,6 @@ Window Geometry:
     collapsed: false
   Views:
     collapsed: false
-  Width: 1848
+  Width: 3368
   X: 72
   Y: 27

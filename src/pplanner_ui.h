@@ -43,6 +43,10 @@ namespace pplanner_ui
     void on_StartExplorer_click();
     void on_StopExplorer_click();
     void on_InitializationPplanner_click();
+    void on_ChangeUnitreeA1ControlState_click();
+    void on_UnitreeA1ChangeToNavigationMode_click();
+    void on_UnitreeA1ChangeToJoyMode_click();
+
   protected Q_SLOTS:
 
   protected:
@@ -67,6 +71,15 @@ namespace pplanner_ui
 
     QPushButton *button_initialization_pplanner;
     ros::ServiceClient Initialization_pplanner_client;
+
+    QPushButton *button_ChangeUnitreeA1ControlState;
+    ros::ServiceClient ChangeUnitreeA1ControlStateClient_;
+
+    QPushButton *button_UnitreeA1ChangeToNavigationMode;
+    ros::ServiceClient UnitreeA1ChangeToNavigationModeClient_;
+
+    QPushButton *button_UnitreeA1ChangeToJoyMode;
+    ros::ServiceClient UnitreeA1ChangeToJoyModeClient_;
 
     ros::NodeHandle nh;
   };

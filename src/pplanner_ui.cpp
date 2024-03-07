@@ -15,6 +15,9 @@ namespace pplanner_ui
     Start_explorer_client = nh.serviceClient<std_srvs::Trigger>("start_to_explore");
     Stop_explorer_client = nh.serviceClient<std_srvs::Trigger>("stop_exploring");
     Initialization_pplanner_client = nh.serviceClient<std_srvs::Trigger>("pplanner_initialization");
+    ChangeUnitreeA1ControlStateClient_ = nh.serviceClient<std_srvs::Trigger>("/GazeboA1ROS/ControlA1StateChange");
+    UnitreeA1ChangeToNavigationModeClient_ = nh.serviceClient<std_srvs::Trigger>("/GazeboA1ROS/ChangeToNavigationMode");
+    UnitreeA1ChangeToJoyModeClient_ = nh.serviceClient<std_srvs::Trigger>("/GazeboA1ROS/ChangeToJoyMode");
 
     QVBoxLayout *v_box_layout = new QVBoxLayout;
 
@@ -25,6 +28,9 @@ namespace pplanner_ui
     button_start_explorer = new QPushButton;
     button_stop_explorer = new QPushButton;
     button_initialization_pplanner = new QPushButton;
+    button_ChangeUnitreeA1ControlState = new QPushButton;
+    button_UnitreeA1ChangeToNavigationMode = new QPushButton;
+    button_UnitreeA1ChangeToJoyMode = new QPushButton;
 
     button_global_planner_by_id_->setText("Run Global Planner By Id");
     button_pause_planner->setText("Pause the tracker");
@@ -33,6 +39,9 @@ namespace pplanner_ui
     button_start_explorer->setText("Start the explorer");
     button_stop_explorer->setText("Stop the explorer");
     button_initialization_pplanner->setText("Initialization");
+    button_ChangeUnitreeA1ControlState->setText("Change Unitree A1 Control State");
+    button_UnitreeA1ChangeToNavigationMode->setText("Unitree A1 Change To Navigation Mode");
+    button_UnitreeA1ChangeToJoyMode->setText("Unitree A1 Change To Joy Mode");
 
     QVBoxLayout *global_vbox_layout = new QVBoxLayout;
     QHBoxLayout *global_hbox_layout = new QHBoxLayout;
@@ -54,6 +63,9 @@ namespace pplanner_ui
     v_box_layout->addWidget(button_start_explorer);
     v_box_layout->addWidget(button_stop_explorer);
     v_box_layout->addWidget(button_initialization_pplanner);
+    v_box_layout->addWidget(button_ChangeUnitreeA1ControlState);
+    v_box_layout->addWidget(button_UnitreeA1ChangeToNavigationMode);
+    v_box_layout->addWidget(button_UnitreeA1ChangeToJoyMode);
 
     setLayout(v_box_layout);
 
@@ -77,6 +89,15 @@ namespace pplanner_ui
 
     connect(button_initialization_pplanner, SIGNAL(clicked()), this,
             SLOT(on_InitializationPplanner_click()));
+
+    connect(button_ChangeUnitreeA1ControlState, SIGNAL(clicked()), this,
+            SLOT(on_ChangeUnitreeA1ControlState_click()));
+
+    connect(button_UnitreeA1ChangeToNavigationMode, SIGNAL(clicked()), this,
+            SLOT(on_UnitreeA1ChangeToNavigationMode_click()));
+
+    connect(button_UnitreeA1ChangeToJoyMode, SIGNAL(clicked()), this,
+            SLOT(on_UnitreeA1ChangeToJoyMode_click()));
   }
 
   void pplanner_panel::on_global_planner_by_id_click()
@@ -210,6 +231,51 @@ namespace pplanner_ui
     {
       ROS_INFO("[PPLANNER-UI] Service call succeed: %s",
                Initialization_pplanner_client.getService().c_str());
+    }
+  }
+
+  void pplanner_panel::on_ChangeUnitreeA1ControlState_click()
+  {
+    std_srvs::Trigger srv;
+    if (!ChangeUnitreeA1ControlStateClient_.call(srv))
+    {
+      ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
+                ChangeUnitreeA1ControlStateClient_.getService().c_str());
+    }
+    else
+    {
+      ROS_INFO("[PPLANNER-UI] Service call succeed: %s",
+               ChangeUnitreeA1ControlStateClient_.getService().c_str());
+    }
+  }
+
+  void pplanner_panel::on_UnitreeA1ChangeToNavigationMode_click()
+  {
+    std_srvs::Trigger srv;
+    if (!UnitreeA1ChangeToNavigationModeClient_.call(srv))
+    {
+      ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
+                UnitreeA1ChangeToNavigationModeClient_.getService().c_str());
+    }
+    else
+    {
+      ROS_INFO("[PPLANNER-UI] Service call succeed: %s",
+               UnitreeA1ChangeToNavigationModeClient_.getService().c_str());
+    }
+  }
+
+  void pplanner_panel::on_UnitreeA1ChangeToJoyMode_click()
+  {
+    std_srvs::Trigger srv;
+    if (!UnitreeA1ChangeToJoyModeClient_.call(srv))
+    {
+      ROS_ERROR("[PPLANNER-UI] Service call failed: %s",
+                UnitreeA1ChangeToJoyModeClient_.getService().c_str());
+    }
+    else
+    {
+      ROS_INFO("[PPLANNER-UI] Service call succeed: %s",
+               UnitreeA1ChangeToJoyModeClient_.getService().c_str());
     }
   }
 
